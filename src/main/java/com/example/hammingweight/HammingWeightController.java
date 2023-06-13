@@ -6,9 +6,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HammingWeightController {
+    private String lastString;
+    @RequestMapping("/laststring")
+    public String getLastString() {
+        return lastString;
+    }
 
     @RequestMapping("/hamming")
     public int calculateHammingWeight(@RequestParam("string") String inputString) {
+        lastString = inputString;
         int hammingWeight = 0;
 
         for (int i = 0; i < inputString.length(); i++) {
@@ -18,4 +24,6 @@ public class HammingWeightController {
         }
         return hammingWeight;
     }
+
+
 }

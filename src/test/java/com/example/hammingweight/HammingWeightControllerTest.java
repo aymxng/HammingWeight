@@ -19,4 +19,13 @@ class HammingWeightControllerTest {
         int result3 = controller.calculateHammingWeight("000050000");
         Assertions.assertEquals(1, result3);
     }
+
+    @Test
+    public void testGetLastString() {
+        HammingWeightController controller = new HammingWeightController();
+
+        controller.calculateHammingWeight("01234");
+        String result = controller.getLastString();
+        Assertions.assertEquals("01234", result);
+    }
 }
